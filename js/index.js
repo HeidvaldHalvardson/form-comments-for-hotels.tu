@@ -16,11 +16,11 @@ formText.addEventListener('keydown', (evt) => {
     formText.value += `\n`
   } else if (evt.key === 'Enter') {
     evt.preventDefault()
-    createComment(form)
+    createComment()
   }
 })
 
-const createComment = (form) => {
+const createComment = () => {
   const comment = commentTemplate.cloneNode(true)
   const name = comment.querySelector('.comment-author')
   const text = comment.querySelector('.comment-text')
@@ -58,7 +58,7 @@ const createComment = (form) => {
 form.addEventListener('submit', (evt) => {
   evt.preventDefault()
 
-  createComment(form)
+  createComment()
 })
 
 
