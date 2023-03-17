@@ -11,14 +11,7 @@ const formDate = form.querySelector('#date')
 const textValidation = form.querySelector('#text-validation')
 const dateValidation = form.querySelector('#date-validation')
 
-formText.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Enter' && evt.ctrlKey) {
-    formText.value += `\n`
-  } else if (evt.key === 'Enter') {
-    evt.preventDefault()
-    createComment()
-  }
-})
+formText.focus()
 
 const createComment = () => {
   const comment = commentTemplate.cloneNode(true)
@@ -61,6 +54,14 @@ form.addEventListener('submit', (evt) => {
   createComment()
 })
 
+formText.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Enter' && evt.ctrlKey) {
+    formText.value += `\n`
+  } else if (evt.key === 'Enter') {
+    evt.preventDefault()
+    createComment()
+  }
+})
 
 formText.addEventListener('input', () => {
   if (textValidation) {
