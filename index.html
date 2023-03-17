@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form comments</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c6d479fa06.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <form id="form" class="form">
+      <input type="text" name="name" id="name" class="form-name" placeholder="Ваше имя">
+      <div class="form-text-wrapper validation-wrapper">
+        <textarea id="text" class="form-text" placeholder="Ваш комментарий"></textarea>
+        <span class="validation" id="text-validation"></span>
+      </div>
+      <div class="validation-wrapper">
+        <input type="date" name="date" id="date" class="form-date">
+        <span class="validation" id="date-validation"></span>
+      </div>
+      <button type="submit" class="form-button"><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
+    </form>
+
+    <div class="comment-wrapper" id="comments"></div>
+  </div>
+    <template id="comment">
+      <div class="comment">
+        <span class="comment-author">Аноним</span>
+        <button class="comment-delete" type="button"><i class="fa-sharp fa-solid fa-trash"></i></button>
+        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga iusto quo rem similique totam? Aliquid deleniti dignissimos dolorem earum, harum laboriosam placeat praesentium quam quia quo, similique sint tempore temporibus.</p>
+        <span class="comment-date">вчера, 18:39</span>
+        <button class="comment-like" type="button">
+          <span class="like"><i class="fa-regular fa-heart"></i></span>
+          <span class="like like-toggle"><i class="fa-solid fa-heart"></i></span>
+        </button>
+      </div>
+    </template>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>

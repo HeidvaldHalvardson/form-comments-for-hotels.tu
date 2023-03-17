@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e5e5e5;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.form {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: auto 35px;
+  gap: 20px 10px;
+
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 7px 0 #000000;
+  border-radius: 5px;
+}
+
+.form-name,
+.form-text {
+  padding: 5px 10px;
+  color: #2d2d2d;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+
+.form-name,
+.form-text-wrapper {
+  grid-column: 1 / -1;
+}
+
+.form-text {
+  max-width: 460px;
+  min-width: 460px;
+  max-height: 200px;
+  min-height: 50px;
+  position: relative;
+}
+
+.form-name::placeholder,
+.form-text::placeholder {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.form-date {
+  padding: 5px 10px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+.validation-wrapper {
+  position: relative;
+}
+
+.validation {
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  left: 45%;
+  top: 20px ;
+
+  background-color: #cd5c5c;
+  padding: 8px;
+  max-width: 150px;
+  border-radius: 3px;
+  text-align: center;
+
+  z-index: 100;
+  pointer-events: none;
+}
+
+.validation:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #cd5c5c;
+
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  transform: rotate(45deg);
+}
+
+
+.form-button {
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+}
+
+button:hover {
+  color: #a8a8a8;
+}
+
+.comment-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.comment {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 -2px 7px 0 #000000;
+  position: relative;
+}
+
+.comment:first-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.comment:last-child {
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.comment:only-child {
+  border-radius: 5px;
+}
+
+.comment-author {
+  font-weight: 700;
+}
+
+.comment-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  border: none;
+  background-color: transparent;
+}
+
+.comment-date {
+  color: #666666;
+}
+
+.comment-like {
+  position: absolute;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.like-toggle {
+  display: none;
+}
