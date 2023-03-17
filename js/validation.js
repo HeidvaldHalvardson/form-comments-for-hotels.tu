@@ -12,7 +12,11 @@ const setText = (value, text) => {
     textValidation.innerHTML = 'Максимум 250 символов'
     return 0
   } else {
-    text.textContent = value
+    let newValue = value
+    if (value.includes('\n')) {
+      newValue = value.replace(/[\n]/g, '<br>')
+    }
+    text.innerHTML = newValue
   }
 }
 

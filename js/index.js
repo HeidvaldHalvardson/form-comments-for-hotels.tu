@@ -4,32 +4,38 @@ const form = document.querySelector('#form')
 
 const comments = document.querySelector('#comments')
 const commentTemplate = document.querySelector('#comment').content.querySelector('.comment')
+const formName = form.querySelector('#name')
 const formText = form.querySelector('#text')
 const formDate = form.querySelector('#date')
 
 const textValidation = form.querySelector('#text-validation')
 const dateValidation = form.querySelector('#date-validation')
 
-const createComment = (form, evt) => {
+formText.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Enter' && evt.ctrlKey) {
+    formText.value += `\n`
+  } else if (evt.key === 'Enter') {
+    evt.preventDefault()
+    createComment(form)
+  }
+})
+
+const createComment = (form) => {
   const comment = commentTemplate.cloneNode(true)
   const name = comment.querySelector('.comment-author')
   const text = comment.querySelector('.comment-text')
   const date = comment.querySelector('.comment-date')
 
-  let formNameValue = form.querySelector('#name').value
-  let formTextValue = formText.value
-  let formDateValue = formDate.value
-
   const deleteButton = comment.querySelector('.comment-delete')
   const likeButton = comment.querySelector('.comment-like')
 
-  !formNameValue ? name.textContent = 'Аноним' :
-    name.textContent = formNameValue
+  !formName.value ? name.textContent = 'Аноним' :
+    name.textContent = formName.value
 
-  setText(formTextValue, text)
-  setDate(formDateValue, date)
+  setText(formText.value, text)
+  setDate(formDate.value, date)
 
-  if (setText(formTextValue, text) === 0 || setDate(formDateValue, date) === 0) {
+  if (setText(formText.value, text) === 0 || setDate(formDate.value, date) === 0) {
     return
   }
 
@@ -41,17 +47,18 @@ const createComment = (form, evt) => {
      likeButton.querySelectorAll('.like').forEach((item) =>{
       item.classList.toggle('like-toggle')
     })
-
   })
 
   comments.append(comment)
-  evt.target.reset()
+  formName.value = ''
+  formText.value = ''
+  formDate.value = ''
 }
 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault()
 
-  createComment(form, evt)
+  createComment(form)
 })
 
 
@@ -66,3 +73,5 @@ formDate.addEventListener('input', () => {
     dateValidation.style.display = 'none'
   }
 })
+
+
